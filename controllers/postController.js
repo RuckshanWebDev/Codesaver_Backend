@@ -5,7 +5,7 @@ import Post from "../models/postModel.js";
 const getAllPosts = expressAsyncHandler(async (req, res) => {
     console.log("all");
     try {
-        const post = await Post.find()
+        const post = await Post.find().sort({ _id: -1 })
         res.status(200).json({ message: "Success", data: post })
     } catch (error) {
         res.status(401)
